@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<project name="second" default="war">
+
+<target name="clear">
+<delete dir="classfolder"/>
+</target>
+<target name="int" depends="clear">
+<mkdir dir="classfolder"/>
+</target>
+<target name="compile" depends="int" >
+<javac srcdir="src"
+       destdir="classfolder"/>
+
+</target>
+<target name="jar" depends="compile">
+<jar destfile="jar/ecom.jar" basedir="classfolder"/>
+</target>
+<target name="war" depends="jar">
+<war needxmlfile="false" destfile="war\ecom.war" basedir="jar"/>
+
+
+</target>
+
+</project>
